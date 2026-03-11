@@ -1,0 +1,81 @@
+---
+---
+<section class="section contact">
+  <div class="container fade-up">
+    <h2>Let's build<br/>something <span class="text-accent">together</span>.</h2>
+    <div class="contact-details">
+      <a href="mailto:hello@example.com" class="email-link">hello@example.com</a>
+      
+      <div class="social-links">
+        <a href="#">GitHub</a>
+        <a href="#">LinkedIn</a>
+        <a href="#">Twitter</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .contact {
+    min-height: 80vh;
+  }
+
+  .contact h2 {
+    font-size: clamp(3rem, 6vw, 5rem);
+    margin-bottom: 4rem;
+  }
+
+  .text-accent {
+    color: var(--accent-color);
+  }
+
+  .contact-details {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    flex-wrap: wrap;
+    gap: 2rem;
+  }
+
+  .email-link {
+    font-size: clamp(1.5rem, 3vw, 2.5rem);
+    color: var(--text-color);
+    text-decoration: none;
+    position: relative;
+    display: inline-block;
+  }
+
+  .email-link::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: var(--accent-color);
+    transform-origin: bottom right;
+    transition: transform 0.25s ease-out;
+  }
+
+  .email-link:hover::after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+  }
+
+  .social-links {
+    display: flex;
+    gap: 2rem;
+  }
+
+  .social-links a {
+    color: #a3a3a3;
+    text-decoration: none;
+    font-size: 1.2rem;
+    transition: color 0.2s ease;
+  }
+
+  .social-links a:hover {
+    color: var(--accent-color);
+  }
+</style>

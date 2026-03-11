@@ -1,0 +1,22 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Header from "../components/Header.astro";
+import Hero from "../components/Hero.astro";
+import About from "../components/About.astro";
+import Skills from "../components/Skills.astro";
+import Projects from "../components/Projects.astro";
+import Contact from "../components/Contact.astro";
+
+const title = "Modern Developer Portfolio";
+const description =
+  "A dark minimal developer portfolio built with Astro, GSAP, and Lenis smooth scrolling.";
+---
+
+<BaseLayout title={title} description={description}>
+  <main>
+    <Header />
+    <canvas id="welcome"></canvas>
+    <Hero />
+  </main>
+  <script src="../scripts/particles.js"></script>
+</BaseLayout>
