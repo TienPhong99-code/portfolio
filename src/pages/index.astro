@@ -7,16 +7,20 @@ import Skills from "../components/Skills.astro";
 import Projects from "../components/Projects.astro";
 import Contact from "../components/Contact.astro";
 
-const title = "Modern Developer Portfolio";
+const title = "Hồ Tiên Phong FrontEnd Developer";
 const description =
-  "A dark minimal developer portfolio built with Astro, GSAP, and Lenis smooth scrolling.";
+  "Tôi không chỉ xây dựng website, tôi xây dựng sự tin tưởng và cảm xúc của người dùng";
 ---
 
 <BaseLayout title={title} description={description}>
   <main>
     <Header />
-    <canvas id="welcome"></canvas>
-    <Hero />
+
+    <div class="hero-about-wrapper">
+      <Hero />
+      <About />
+    </div>
   </main>
+  <script src="../scripts/animations.js"></script>
   <script src="../scripts/particles.js"></script>
 </BaseLayout>

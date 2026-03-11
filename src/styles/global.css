@@ -39,8 +39,7 @@ body {
     Open Sans,
     Helvetica Neue,
     sans-serif;
-  background: #05060f
-    linear-gradient(0deg, rgba(216, 236, 248, 0.06), rgba(152, 192, 239, 0.06));
+  background: #05060f;
 
   font-size: max(calc(var(--_size) * 0.03), 10px);
   --_factor: min(600px, 80vh);
@@ -58,7 +57,7 @@ body.gold .header h2 a {
 body.gold canvas {
   filter: drop-shadow(2em 4em 0px #d8bd10) drop-shadow(-8em -14em 0px #d8bd10);
 }
-body.gold .header .spotlight {
+.spotlight {
   filter: invert(1) brightness(4.7) opacity(0.5);
 }
 body.gold .mountains > div {
@@ -99,11 +98,7 @@ h2 a {
   left: 0;
   right: 0;
   margin: 0 auto;
-  opacity: 0;
   height: 4em;
-  animation:
-    load 2s ease-in 2s forwards,
-    up 1.4s ease-out 2s forwards;
 }
 
 .mid-spot {
@@ -116,26 +111,18 @@ h2 a {
   transition: box-shadow 1s ease-in-out;
   position: absolute;
   left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
+  top: 0%;
+  transform: translate(-50%, 100%);
 }
 
 .header > :nth-child(2):hover ~ .spotlight {
   animation: colorize 10s linear infinite;
 }
-@keyframes colorize {
-  0% {
-    filter: hue-rotate(0deg);
-  }
-  100% {
-    filter: hue-rotate(-380deg);
-  }
-}
 
 .contact-btn {
   position: relative;
   width: 8em;
-  height: 2.4em;
+  min-height: 2.4em;
   cursor: pointer;
   border-radius: 20em;
   border: none;
@@ -237,19 +224,18 @@ h2 a {
   }
 }
 
-.header .spotlight {
+.spotlight {
   pointer-events: none;
   position: absolute;
   left: 0;
   right: 0;
   top: 0;
   margin: 0 auto;
-  transition: filter 1s ease-in-out;
   height: 100vh;
   width: 100%;
   overflow: hidden;
 }
-.header .spotlight > div {
+.spotlight > div {
   border-radius: 0 0 50% 50%;
   position: absolute;
   left: 0;
@@ -274,29 +260,21 @@ h2 a {
     loadrot 2s ease-in-out forwards,
     spotlight 21s ease-in-out infinite reverse;
 }
-.header .spotlight > div:nth-child(1) {
+.spotlight > div:nth-child(1) {
   rotate: 20deg;
   animation:
     load 2s ease-in-out forwards,
     loadrot 2s ease-in-out forwards,
     spotlight 17s ease-in-out infinite;
 }
-.header .spotlight > div:nth-child(2) {
+.spotlight > div:nth-child(2) {
   rotate: -20deg;
   animation:
     load 2s ease-in-out forwards,
     loadrot 2s ease-in-out forwards,
     spotlight 14s ease-in-out infinite;
 }
-@keyframes loadrot {
-  0% {
-    rotate: 0deg;
-    scale: 0;
-  }
-  100% {
-    scale: 1;
-  }
-}
+
 @keyframes spotlight {
   0% {
     transform: rotateZ(0deg) scale(1);
@@ -328,17 +306,25 @@ canvas#welcome {
   position: fixed;
   width: 100%;
   height: 100%;
-  z-index: 1;
+  z-index: -1;
 }
 
 p {
   font-size: 1.5em;
 }
 
+.hero-about-wrapper {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+
 .hero {
   width: 100%;
   height: 100vh;
   position: relative;
+  z-index: 2;
   font-size: 2vh;
   display: flex;
   flex-direction: column;
@@ -346,21 +332,25 @@ p {
   align-items: center;
   text-align: center;
   gap: 4vh;
+  overflow: hidden;
+}
+
+.hero-about-wrapper > .about {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .heroT {
   position: relative;
-  opacity: 0;
-  animation: load 2s ease-in-out 0.6s forwards;
 }
-@keyframes load {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-}
+
 .heroT > h2 {
   margin: auto;
   width: fit-content;
@@ -425,11 +415,6 @@ p {
 
 .heroP {
   font-size: 1.2em;
-  opacity: 0;
-  translate: 0 1em;
-  animation:
-    load 2s ease-out 2s forwards,
-    up 1.4s ease-out 2s forwards;
   color: #d8ecf8;
   text-shadow: 0 2px 16px rgba(174, 207, 242, 0.24);
   background: linear-gradient(0deg, #d8ecf8 0, #98c0ef 100%);
@@ -437,27 +422,12 @@ p {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
-@keyframes up {
-  100% {
-    translate: 0;
-  }
-}
 
 .heroSubP {
   position: relative;
-  opacity: 0;
-  animation:
-    load3 2s ease-in 0s forwards,
-    up 1.4s ease-out 0s forwards;
+  opacity: 1;
 }
-@keyframes load3 {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 0.7;
-  }
-}
+
 .heroSubP p {
   font-size: 1em;
   position: relative;
@@ -469,6 +439,7 @@ p {
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  opacity: 1;
 }
 .heroSubP p::before,
 .heroSubP p::after {
@@ -483,14 +454,7 @@ p {
     load2 1.4s ease-in-out 0s forwards,
     up 1.4s ease-out 0s forwards;
 }
-@keyframes load2 {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 0.3;
-  }
-}
+
 .heroSubP p::before {
   background: linear-gradient(-90deg, #9dc3f7 0%, transparent 100%);
   right: 120%;
@@ -544,36 +508,18 @@ p {
 .mountains > div:nth-child(1) {
   bottom: -240%;
   translate: -6em 2em;
-  animation: mountainload1 2s ease-out 2.4s forwards;
 }
 .mountains > div:nth-child(2) {
   bottom: -240%;
   translate: -2em 0em;
   width: 14em;
   height: 20em;
-  animation: mountainload2 2s ease-out 2.2s forwards;
 }
 .mountains > div:nth-child(3) {
   bottom: -240%;
   translate: 6em 3em;
-  animation: mountainload1 2s ease-out 2s forwards;
 }
-@keyframes mountainload1 {
-  0% {
-    bottom: -240%;
-  }
-  100% {
-    bottom: -140%;
-  }
-}
-@keyframes mountainload2 {
-  0% {
-    bottom: -240%;
-  }
-  100% {
-    bottom: -108%;
-  }
-}
+
 .mountains > div::before {
   content: "";
   display: block;
@@ -800,5 +746,27 @@ p {
         }
       }
     }
+  }
+}
+.logo {
+  display: inline-block;
+  width: 150px;
+  height: 40px;
+  transform: translateX(15%);
+}
+@media screen and (max-width: 1200px) {
+  .hero {
+    font-size: 1.8vw;
+  }
+}
+@media screen and (max-width: 500px) {
+  .heroP {
+    font-size: 2em;
+  }
+  .heroSubP p {
+    font-size: 2em;
+  }
+  .contact-btn {
+    font-size: 1.4em;
   }
 }
