@@ -1,92 +1,206 @@
 ---
+const projects = [
+  {
+    category: "Website ẩm thực",
+    title: "Acecook",
+    description:
+      "Cải thiện UX/UI chuyên trang “Góc ẩm thực” trên website acecookvietnam.vn",
+    logo: "https://thietkelogo.vn/wp-content/uploads/2017/10/logo-12.png",
+    image: "./assets/images/prj1.jpg",
+    glowColor: "#ed1c24",
+    link: "https://gocamthuc.acecookvietnam.vn/",
+  },
+  {
+    category: "Website bán hàng",
+    title: "Janbee",
+    description:
+      "Tạo ra một nền tảng trực tuyến không chỉ đẹp mắt mà còn phản ánh đúng bản sắc thương hiệu",
+    logo: "https://janbee.com.vn/wp-content/uploads/2024/10/icon-introl.png",
+    image: "./assets/images/prj2.jpg",
+    glowColor: "#e92800",
+    link: "https://janbee.com.vn/trang-chu/",
+  },
+  {
+    category: "Website nội thất",
+    title: "LTD. Studio",
+    description:
+      "Tinh tế về thẩm mỹ và giàu cảm xúc trong cách thể hiện dự án như chính phong cách thiết kế của LTD.",
+    logo: "https://ltdstudio.vn/wp-content/uploads/2025/04/logo.svg",
+    image: "./assets/images/prj3.jpg",
+    glowColor: "#af928b",
+    link: "https://ltdstudio.vn/",
+  },
+  {
+    category: "Website nội thất",
+    title: "TH Decor",
+    description:
+      "Website cho TH Decor nhấn mạnh sự khác biệt để phân biệt với các đối thủ cạnh tranh khác.",
+    logo: "https://thdecor.vn/wp-content/uploads/2024/03/logo.png",
+    image: "./assets/images/prj5.jpg",
+    glowColor: "#f07e22",
+    link: "https://thdecor.vn/",
+  },
+  {
+    category: "Website giáo dục",
+    title: "CĐ Du lịch Sài Gòn",
+    description:
+      "CĐ DLSG với mục tiêu nâng cao vị trí nhà đào tạo nhân sự du lịch hàng đầu VN",
+    logo: "https://dulichsaigon.edu.vn/wp-content/uploads/2024/01/logo-pri.png",
+    image: "./assets/images/prj6.jpg",
+    glowColor: "#0940e4",
+    link: "https://dulichsaigon.edu.vn/",
+  },
+  {
+    category: "Website giáo dục",
+    title: "Yola",
+    description:
+      "Yola là một trong những trung tâm Anh ngữ hàng đầu tại Việt Nam, cung cấp các khóa học tiếng Anh chất lượng cao cho học viên ở mọi lứa tuổi và trình độ.",
+    logo: "https://yola.vn/wp-content/uploads/2025/10/Brand-Guideline-Logo-1.png",
+    image: "./assets/images/prj9.jpg",
+    glowColor: "#56a3f7",
+    link: "https://yola.vn/",
+  },
+  {
+    category: "Website giới thiệu",
+    title: "Delivery K",
+    description:
+      "Một trong những mắt xích quan trọng trong tiến trình mở rộng đối tác nhà hàng Hàn Quốc toàn cầu, giúp người dùng đặt món Hàn tiện lợi.",
+    logo: "https://welcome.deliveryk.com/wp-content/uploads/2023/09/Logo-DK.png",
+    image: "./assets/images/prj7.jpg",
+    glowColor: "#cd2e3a",
+    link: "https://welcome.deliveryk.com/",
+  },
+  {
+    category: "Website bán hàng",
+    title: "FBSHOP",
+    description:
+      "Mang đến những sản phẩm cầu lông chính hãng, căng vợt chuẩn thi đấu, hàn vợt carbon chất lượng cao, chính sách bảo hành phù hợp với từng nhu cầu của khách hàng.",
+    logo: "https://mona.media/wp-content/uploads/2024/10/LOGO-FB-SHOP-1-1536x1404.jpg",
+    image: "./assets/images/prj8.jpg",
+    glowColor: "#ff6b00",
+    link: "https://fbshop.vn/",
+  },
+  {
+    category: "Website bán hàng",
+    title: "Givralbakery",
+    description:
+      "Givral Bakery là một thương hiệu bánh ngọt nổi tiếng tại Việt Nam, được biết đến với những sản phẩm bánh chất lượng cao.",
+    logo: "https://givralbakery.com.vn/wp-content/uploads/2025/03/cropped-cropped-logo.png",
+    image: "./assets/images/prj11.jpg",
+    glowColor: "#c5001d",
+    link: "https://givralbakery.com.vn/",
+  },
+  {
+    category: "Website bán hàng",
+    title: "Cafune",
+    description:
+      "Đáp ứng đầy đủ các yêu cầu về thẩm mỹ và chức năng, từ đó hỗ trợ chiến lược kinh doanh và phát triển thương hiệu hiệu quả.",
+    logo: "https://cafune.vn/wp-content/uploads/2025/06/cropped-cropped-Logo-The-Cafune-2-1.jpg",
+    image: "./assets/images/prj10.jpg",
+    glowColor: "#ebecee",
+    link: "https://cafune.vn/",
+  },
+];
 ---
-<section class="section pinned-projects">
-  <div class="container">
-    <h2 class="fade-up">Featured Work</h2>
-    <div class="projects-layout fade-up">
-      <!-- Project 1 -->
-      <div class="project-card">
-        <div class="project-info">
-          <h3>E-Commerce Platform</h3>
-          <p>High performance storefront built with Next.js and Shopify Headless API.</p>
-          <a href="#" class="project-link">View Case Study &rarr;</a>
-        </div>
-        <div class="project-visual bg-1"></div>
+
+<section class="section projects-section overflow-hidden">
+  <div class="flex flex-col gap-12 min-h-screen justify-center">
+    <div class="flex flex-col gap-4 items-center text-center px-3">
+      <div
+        class="subheadline-box opacity flex items-center gap-2 px-4 py-2 bg-white/5 rounded-full border border-white/10"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="20"
+          height="20"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          class="lucide lucide-network text-gray-400"
+          ><rect x="16" y="16" width="6" height="6" rx="1"></rect><rect
+            x="2"
+            y="16"
+            width="6"
+            height="6"
+            rx="1"></rect><rect x="9" y="2" width="6" height="6" rx="1"
+          ></rect><path d="M5 16v-3a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v3"
+          ></path><path d="M12 12V8"></path></svg
+        >
+        <span class="text-sm text-gray-400 uppercase tracking-widest"
+          >Dự án</span
+        >
       </div>
-      
-      <!-- Project 2 -->
-      <div class="project-card">
-        <div class="project-info">
-          <h3>Digital Agency</h3>
-          <p>Award-winning marketing site featuring immersive 3D WebGL experiences.</p>
-          <a href="#" class="project-link">View Case Study &rarr;</a>
-        </div>
-        <div class="project-visual bg-2"></div>
-      </div>
+      <h2 class="text-4xl md:text-5xl font-bold text-white">Dự án nổi bật</h2>
+      <p class="text-gray-400 max-w-2xl">
+        Mỗi dự án đều là một hành trình độc đáo. Mời bạn khám phá và trải nghiệm
+        những sản phẩm mà tôi tự hào giới thiệu!
+      </p>
+    </div>
+
+    <div
+      class="flex flex-wrap gap-4 md:gap-8 md:flex-nowrap projects-wrapper will-change-transform w-max pl-[15px] xl:pl-[9vw]"
+    >
+      {
+        projects.map((project) => (
+          <div class="relative overflow-hidden h-[100vw] md:h-[70vh] min-w-0 flex-[0_0_80vw] md:flex-[0_0_40vw] cursor-pointer  rounded-xl md:rounded-[25px] select-none group">
+            <a
+              href={project.link}
+              class="absolute inset-0 z-10"
+              target="_blank"
+              rel="noopener noreferrer"
+            />
+            <div class="absolute inset-0 z-10 pointer-events-none w-full h-full rounded-[inherit] shadow-[inset_0_0_0_calc(1px+0px)_hsla(0,0%,100%,0.075),inset_0_0_5vw_hsla(0,0%,100%,0.05)]" />
+
+            <div class="flex flex-col justify-end relative h-full">
+              <div class="relative flex w-full flex-col gap-[0.75vh] p-[1.5vw] h-fit z-20">
+                <div class="w-fit h-fit rounded-[5px] bg-white/5 px-[1vw] py-[0.5vh] backdrop-blur-md shadow-[inset_0_0_0_1px_hsla(0,0%,100%,0.1)]">
+                  <p class="text-white text-[3.25vw] md:text-[0.95vw]">
+                    {project.category}
+                  </p>
+                </div>
+
+                <h3 class="text-[7.5vw] md:text-[3.25vw] font-bold text-white leading-tight">
+                  {project.title}
+                </h3>
+                <p class="text-gray-300 text-[3.25vw] md:text-[1.05vw] max-w-[80%]">
+                  {project.description}
+                </p>
+
+                <div class="absolute right-[2.5vw] bottom-[2.5vw] flex w-[10vw] h-[10vw] md:h-[4vw] md:w-[4vw] items-center justify-center rounded-[10px] bg-white/[0.05] backdrop-blur-lg shadow-[inset_0_0_0_1px_hsla(0,0%,100%,0.1)]">
+                  <img
+                    src={project.logo}
+                    alt={project.title}
+                    class="w-[7vw] h-[7vw] md:w-[2.5vw] md:h-[2.5vw] object-contain"
+                  />
+                </div>
+              </div>
+
+              <div class="absolute inset-0 -z-10 h-full w-full">
+                <div
+                  class="z-[-5] absolute w-[40%] pt-[40%] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 blur-[150px]"
+                  style={`background-color: ${project.glowColor};`}
+                />
+                <span class="absolute inset-0">
+                  <img
+                    src="./assets/images/mockup-mac.png"
+                    class="block w-full h-full object-contain filter brightness-[0.2] "
+                    alt=""
+                  />
+                  <span class="absolute top-[50%] left-[48.4%] -translate-x-1/2 w-[66.5%] -translate-y-[64%] aspect-video">
+                    <img
+                      src={project.image}
+                      class="block w-full h-full object-cover"
+                    />
+                  </span>
+                </span>
+              </div>
+            </div>
+          </div>
+        ))
+      }
     </div>
   </div>
 </section>
-
-<style>
-  .pinned-projects {
-    background-color: #111;
-  }
-
-  .projects-layout {
-    display: flex;
-    flex-direction: column;
-    gap: 4rem;
-    margin-top: 4rem;
-  }
-
-  .project-card {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 4rem;
-    align-items: center;
-  }
-
-  @media (max-width: 768px) {
-    .project-card {
-      grid-template-columns: 1fr;
-    }
-    .project-card:nth-child(even) .project-visual {
-      grid-row: 1;
-    }
-  }
-
-  .project-info h3 {
-    font-size: 2.5rem;
-    margin-bottom: 1rem;
-  }
-
-  .project-info p {
-    font-size: 1.2rem;
-    color: #a3a3a3;
-    margin-bottom: 2rem;
-  }
-
-  .project-link {
-    color: var(--accent-color);
-    text-decoration: none;
-    font-size: 1.1rem;
-    font-weight: 600;
-  }
-
-  .project-visual {
-    width: 100%;
-    aspect-ratio: 4/3;
-    border-radius: 8px;
-    background-size: cover;
-    background-position: center;
-    background-color: #222;
-  }
-
-  .bg-1 {
-    background: linear-gradient(45deg, #1f2937, #3b82f6);
-  }
-  
-  .bg-2 {
-    background: linear-gradient(45deg, #4c1d95, #ec4899);
-  }
-</style>

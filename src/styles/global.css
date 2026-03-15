@@ -50,15 +50,54 @@ body.gold canvas {
   filter: invert(1) brightness(4.7) opacity(0.5);
 }
 
-/* SplitType generated elements */
 .text-animation__text span {
   display: inline-block;
   will-change: transform, opacity;
   color: rgb(255 255 255 / 0.5);
-  opacity: 0;
   transform: translateY(20px);
+  opacity: 0;
+}
+.glass-icon {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  border-radius: inherit;
+  background: linear-gradient(
+    145deg,
+    rgba(255, 255, 255, 0.15),
+    rgba(255, 255, 255, 0.02)
+  );
+  backdrop-filter: blur(14px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
+.text-animation__text .text-highlight span {
+  color: #9dc3f7 !important;
+  background:
+    radial-gradient(
+      2em 2em at 50% 50%,
+      transparent calc(var(--p) - 2em),
+      #fff calc(var(--p) - 1em),
+      #fff calc(var(--p) - 0.4em),
+      transparent var(--p)
+    ),
+    linear-gradient(0deg, #bad1f1 30%, #9dc3f7 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 2px 16px rgba(174, 207, 242, 0.24);
+  font-weight: 600;
+  text-transform: uppercase;
+}
+.tech-icon img {
+  filter: brightness(0) invert(1) drop-shadow(0 0 6px rgba(255, 255, 255, 0.6));
+}
+.text-animation__text .text-highlight {
+  opacity: 1;
+}
 body.gold .mountains > div {
   box-shadow:
     -1em -0.2em 0.4em -1.1em #c2ccff,
@@ -301,31 +340,6 @@ h2 a {
   }
 }
 
-canvas#welcome {
-  position: fixed;
-  width: 100%;
-  height: 100%;
-  z-index: -1;
-  pointer-events: none;
-}
-
-.hero {
-  width: 100%;
-  height: 100vh;
-  position: fixed;
-  top: 0;
-  bottom: 0;
-  /* z-index: 2; */
-  font-size: 2vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  gap: 4vh;
-  overflow: hidden;
-}
-
 .subheadline-box {
   width: fit-content;
   height: fit-content;
@@ -461,34 +475,6 @@ canvas#welcome {
   initial-value: 0%;
 }
 
-.heroP {
-  font-size: 1.2em;
-  color: #d8ecf8;
-  text-shadow: 0 2px 16px rgba(174, 207, 242, 0.24);
-  background: linear-gradient(0deg, #d8ecf8 0, #98c0ef 100%);
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-.heroSubP {
-  position: relative;
-  opacity: 1;
-}
-
-.heroSubP p {
-  font-size: 1em;
-  position: relative;
-  width: fit-content;
-  margin: auto;
-  color: #d8ecf8;
-  text-shadow: 0 2px 16px rgba(174, 207, 242, 0.24);
-  background: linear-gradient(0deg, #d8ecf8 0, #98c0ef 100%);
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  opacity: 1;
-}
 .heroSubP p::before,
 .heroSubP p::after {
   position: absolute;
@@ -497,21 +483,16 @@ canvas#welcome {
   content: "";
   width: 5em;
   height: 1px;
-  opacity: 0;
-  animation:
-    load2 1.4s ease-in-out 0s forwards,
-    up 1.4s ease-out 0s forwards;
+  opacity: 1;
 }
 
 .heroSubP p::before {
   background: linear-gradient(-90deg, #9dc3f7 0%, transparent 100%);
-  right: 120%;
-  translate: -5em 0;
+  right: 100%;
 }
 .heroSubP p::after {
   background: linear-gradient(90deg, #9dc3f7 0%, transparent 100%);
-  left: 120%;
-  translate: 5em 0;
+  left: 100%;
 }
 
 .mountains {
@@ -683,7 +664,7 @@ canvas#welcome {
 }
 .container {
   width: 1430px;
-  padding: 0 1.5rem;
+  padding: 0 15px;
   margin: 0 auto;
   max-width: 100%;
   height: 100%;
@@ -747,12 +728,6 @@ canvas#welcome {
   height: 5vw;
   background: linear-gradient(0deg, hsla(0, 0%, 100%, 0) 0, #010101);
   z-index: 1;
-}
-.text-animation__text {
-  font-size: 3.2rem;
-  font-weight: 400;
-  text-align: center;
-  color: white;
 }
 
 .text-animation__reveal.left {
@@ -877,8 +852,8 @@ canvas#welcome {
 }
 
 @media screen and (max-width: 1200px) {
-  .hero {
-    font-size: 1.8vw;
+  .text-animation__text {
+    font-size: 2.5vw;
   }
 }
 @media screen and (max-width: 768px) {
@@ -960,13 +935,16 @@ canvas#welcome {
     width: 3vw;
     height: 3vw;
   }
+  .text-animation__text {
+    font-size: 5vw;
+  }
 }
 @media screen and (max-width: 500px) {
   .heroP {
-    font-size: 2em;
+    font-size: 2.2em;
   }
   .heroSubP p {
-    font-size: 2em;
+    font-size: 2.6em;
   }
   .contact-btn {
     font-size: 1.4em;

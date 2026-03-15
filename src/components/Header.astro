@@ -3,13 +3,23 @@ import Button from "./Button.astro";
 ---
 
 <header class="header">
+  <div
+    class="wrap-logo max-lg:text-[1.8vw] max-lg:gap-[30vw] fixed inset-0 flex h-screen w-screen flex-col items-center justify-center pointer-events-none"
+  >
+    <div class="heroT">
+      <h2>Phong ht.dev</h2>
+      <h2>Phong ht.dev</h2>
+    </div>
+  </div>
   <div class="container">
     <div class="h-full justify-between items-center flex">
       <a
         href=""
         target="_blank"
         rel="noopener noreferrer"
-        class="text-5xl logo sm:text-6xl font-bold"></a>
+        class="logo font-bold"
+      >
+      </a>
       <Button />
     </div>
   </div>

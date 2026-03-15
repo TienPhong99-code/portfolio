@@ -6,6 +6,7 @@ import Services from "../components/Services.astro";
 import About from "../components/About.astro";
 import Projects from "../components/Projects.astro";
 import Contact from "../components/Contact.astro";
+import Tech from "../components/Tech.astro";
 
 const title = "Hồ Tiên Phong FrontEnd Developer";
 const description =
@@ -13,13 +14,15 @@ const description =
 ---
 
 <BaseLayout title={title} description={description}>
-  <main class="main">
+  <main class="main overflow-hidden">
     <Header />
     <div class="hero-about-wrapper">
       <Hero />
       <About />
-      <Services />
     </div>
+    <Projects />
+    <Tech />
+    <Services />
   </main>
   <script src="../scripts/animations.js"></script>
   <script src="../scripts/particles.js"></script>

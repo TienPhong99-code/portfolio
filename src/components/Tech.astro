@@ -1,0 +1,112 @@
+---
+const techIcons = [
+  { name: "HTML", src: "/assets/icons/astro.svg" },
+  { name: "CSS", src: "/assets/icons/css.svg" },
+  { name: "JavaScript", src: "/assets/icons/figma.svg" },
+  { name: "React", src: "/assets/icons/github.svg" },
+  // { name: "Astro", src: "/assets/icons/githubcopilot.svg" },
+  { name: "Tailwind CSS", src: "/assets/icons/tailwindcss.svg" },
+  { name: "Gsap", src: "/assets/icons/gsap.svg" },
+  { name: "Html5", src: "/assets/icons/html5.svg" },
+  { name: "JavaScript", src: "/assets/icons/javascript.svg" },
+  { name: "Next.js", src: "/assets/icons/nextdotjs.svg" },
+  { name: "React", src: "/assets/icons/react.svg" },
+  // { name: "React Query", src: "/assets/icons/reactquery.svg" },
+  // { name: "Vercel", src: "/assets/icons/vercel.svg" },
+  { name: "WordPress", src: "/assets/icons/wordpress.svg" },
+];
+---
+
+<section class="section py-20">
+  <div class="container">
+    <div class="flex flex-col gap-12">
+      <div class="flex flex-col gap-4 items-center text-center px-3">
+        <div
+          class="subheadline-box opacity flex items-center gap-2 px-4 py-2 bg-white/5 rounded-full border border-white/10"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="20"
+            height="20"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="lucide lucide-network text-gray-400"
+            ><rect x="16" y="16" width="6" height="6" rx="1"></rect><rect
+              x="2"
+              y="16"
+              width="6"
+              height="6"
+              rx="1"></rect><rect x="9" y="2" width="6" height="6" rx="1"
+            ></rect><path d="M5 16v-3a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v3"
+            ></path><path d="M12 12V8"></path></svg
+          >
+          <span class="text-sm text-gray-400 uppercase tracking-widest"
+            >Công nghệ</span
+          >
+        </div>
+        <h2 class="text-4xl md:text-5xl font-bold text-white">
+          Công nghệ sử dụng
+        </h2>
+        <p class="text-gray-400 max-w-2xl">
+          Tôi sử dụng một loạt các công nghệ hiện đại để xây dựng các dự án của
+          mình, bao gồm HTML, CSS, JavaScript, React, Astro, Tailwind CSS và
+          nhiều công cụ khác. Mỗi dự án là một cơ hội để tôi áp dụng những công
+          nghệ này một cách sáng tạo và hiệu quả.
+        </p>
+      </div>
+      <div class="relative w-full pt-[30%] overflow-hidden">
+        <span
+          class="block absolute w-[105%] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
+        >
+          <svg
+            width="12578"
+            height="3917"
+            viewBox="0 0 12578 3917"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            class="w-full h-auto block tech-svg opacity-20"
+          >
+            <path
+              d="M3.84082 3.20117C1037.34 1243.2 738.341 1130.2 1380.34 1130.2C2022.34 1130.2 2680.34 1130.2 3271.34 1130.2C3862.34 1130.2 3421.34 1958.7 4354.84 1958.7C5288.34 1958.7 6288.34 1958.7 6288.34 1958.7"
+              stroke="white"
+              stroke-width="10"
+              class="tech-path"></path>
+            <path
+              d="M3.84082 3913.7C1037.34 2673.7 738.341 2786.7 1380.34 2786.7C2022.34 2786.7 2680.34 2786.7 3271.34 2786.7C3862.34 2786.7 3421.34 1958.2 4354.84 1958.2C5288.34 1958.2 6288.34 1958.2 6288.34 1958.2"
+              stroke="white"
+              stroke-width="10"
+              class="tech-path"></path>
+            <path
+              d="M12573.3 3.20117C11539.8 1243.2 11838.8 1130.2 11196.8 1130.2C10554.8 1130.2 9896.84 1130.2 9305.84 1130.2C8714.84 1130.2 9155.84 1958.7 8222.34 1958.7C7288.84 1958.7 6288.84 1958.7 6288.84 1958.7"
+              stroke="white"
+              stroke-width="10"
+              class="tech-path"></path>
+            <path
+              d="M12573.3 3913.7C11539.8 2673.7 11838.8 2786.7 11196.8 2786.7C10554.8 2786.7 9896.84 2786.7 9305.84 2786.7C8714.84 2786.7 9155.84 1958.2 8222.34 1958.2C7288.84 1958.2 6288.84 1958.2 6288.84 1958.2"
+              stroke="white"
+              stroke-width="10"
+              class="tech-path"></path>
+          </svg>
+          <div class="list-icon absolute inset-0">
+            {
+              techIcons.map((icon) => (
+                <div class="w-10 h-10 flex justify-center items-center object-contain tech-icon  absolute">
+                  <span class="glass-icon" />
+                  <img
+                    src={icon.src}
+                    alt={icon.name}
+                    class="block w-[50%] object-contain"
+                  />
+                </div>
+              ))
+            }
+          </div>
+        </span>
+      </div>
+    </div>
+  </div>
+</section>

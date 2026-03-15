@@ -1,8 +1,8 @@
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import SplitType from "split-type";
-
-gsap.registerPlugin(ScrollTrigger);
+import { MotionPathPlugin } from "gsap/MotionPathPlugin";
+gsap.registerPlugin(ScrollTrigger, MotionPathPlugin);
 
 export const initAnimations = () => {
   const wrapper = document.querySelector(".hero-about-wrapper");
@@ -17,7 +17,6 @@ export const initAnimations = () => {
       types: "words",
       tagName: "span"
     });
-
 
   }
 
@@ -63,6 +62,7 @@ export const initAnimations = () => {
     heroTimeline.to(".heroSubP", { y: -100, opacity: 0 }, 0);
     heroTimeline.to(".heroP", { y: 100, opacity: 0 }, 0);
     heroTimeline.to("canvas#welcome", { scale: 3, opacity: 0 }, 0);
+
   }
 
   // ABOUT WORD REVEAL
@@ -71,7 +71,6 @@ export const initAnimations = () => {
     const aboutTextTimeline = gsap.timeline({
       scrollTrigger: {
         trigger: aboutSection,
-        markers: true,
         start: "200% 50%",
         end: "200% top",
         scrub: true
@@ -87,6 +86,82 @@ export const initAnimations = () => {
     });
   }
   ScrollTrigger.refresh();
+   initProjectsScroll();
 };
+function initProjectsScroll() {
+  const section = document.querySelector(".projects-section");
+  const wrapper = document.querySelector(".projects-wrapper");
 
-window.addEventListener("load", initAnimations);
+  if (!section || !wrapper) return;
+
+  const scrollWidth = wrapper.scrollWidth;
+
+  gsap.to(wrapper, {
+    x: () => -(scrollWidth - window.innerWidth),
+    ease: "none",
+    scrollTrigger: {
+      trigger: section,
+      start: "top top",
+      end: () => "+=" + scrollWidth,
+      scrub: true,
+      pin: true,
+      invalidateOnRefresh: true,
+        anticipatePin: 1
+    }
+  });
+}
+function initTechIconsMotion() {
+  const icons = gsap.utils.toArray(".tech-icon");
+  const paths = gsap.utils.toArray(".tech-path");
+
+  if (!icons.length || !paths.length) return;
+
+  const pathCount = paths.length;
+
+  // nhóm icon theo path
+  const groups = Array.from({ length: pathCount }, () => []);
+
+  icons.forEach((icon, i) => {
+    const pathIndex = i % pathCount;
+    groups[pathIndex].push(icon);
+  });
+
+  groups.forEach((iconsOnPath, pathIndex) => {
+    const path = paths[pathIndex];
+    const total = iconsOnPath.length;
+
+    iconsOnPath.forEach((icon, i) => {
+
+      // chia đều khoảng cách
+      const spacing = 1 / total;
+      const start = i * spacing;
+
+      gsap.set(icon, {
+        motionPath: {
+          path,
+          align: path,
+          alignOrigin: [0.5, 0.5],
+          start,
+          end: start
+        }
+      });
+
+      gsap.to(icon, {
+        duration: 25 + pathIndex * 5, // tốc độ khác nhau
+        repeat: -1,
+        ease: "none",
+        motionPath: {
+          path,
+          align: path,
+           alignOrigin: [0.5, 0.5],
+          start,
+          end: start + 1
+        }
+      });
+    });
+  });
+}
+window.addEventListener("load", () => {
+  initAnimations();
+  initTechIconsMotion();
+});
