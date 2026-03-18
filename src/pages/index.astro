@@ -7,6 +7,7 @@ import About from "../components/About.astro";
 import Projects from "../components/Projects.astro";
 import Contact from "../components/Contact.astro";
 import Tech from "../components/Tech.astro";
+import Skills from "../components/Skills.astro";
 
 const title = "Hồ Tiên Phong FrontEnd Developer";
 const description =
@@ -22,8 +23,24 @@ const description =
     </div>
     <Projects />
     <Tech />
+    <Skills />
     <Services />
   </main>
+
+  <!-- Spline 3D Modal -->
+  <div class="spline-modal overflow-hidden">
+    <div class="w-full h-full scale-125">
+      <spline-viewer
+        url="https://prod.spline.design/RVgHNKrWQ5MfYf3F/scene.splinecode"
+      ></spline-viewer>
+    </div>
+  </div>
+  <script
+    is:inline
+    type="module"
+    src="https://unpkg.com/@splinetool/viewer@1.12.69/build/spline-viewer.js"
+  ></script>
+
   <script src="../scripts/animations.js"></script>
   <script src="../scripts/particles.js"></script>
 </BaseLayout>
