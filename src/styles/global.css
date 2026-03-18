@@ -1,4 +1,4 @@
-@import url("https://fonts.cdnfonts.com/css/hubot-sans");
+@import url("/assets/fonts/SFProDisplay/stylesheet.css");
 
 @tailwind base;
 @tailwind components;
@@ -27,7 +27,7 @@ html {
 
 body {
   margin: 0;
-  font-family: "Playfair Display", serif;
+  font-family: "SF Pro Display", serif;
   background: #010101;
   line-height: 1.5;
   font-size: max(calc(var(--_size) * 0.03), 10px);
