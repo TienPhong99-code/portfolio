@@ -1,3 +1,273 @@
 ---
-
+const skills = [
+  {
+    label: "Giao Diện & Hoạt Ảnh",
+    items: ["HTML5 / CSS3", "JavaScript (ES6+)", "GSAP Animation", "Responsive Design", "Pixel-Perfect UI"],
+  },
+  {
+    label: "Framework & Thư Viện",
+    items: ["React.js", "Next.js", "Astro", "Tailwind CSS", "SCSS / BEM"],
+  },
+  {
+    label: "Công Cụ & Nền Tảng",
+    items: ["WordPress", "Figma", "Git / GitHub", "Vite", "Vercel"],
+  },
+];
 ---
+
+<section class="section sec-skills py-20">
+  <div class="container">
+    <div class="flex flex-col gap-16 items-center">
+      <div class="flex flex-col gap-4 items-center text-center px-3">
+        <div
+          class="subheadline-box opacity flex items-center gap-2 px-4 py-2 bg-white/5 rounded-full border border-white/10"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="20"
+            height="20"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="text-gray-400"
+            ><path d="m12 14 4-4"></path><path d="M3.34 19a10 10 0 1 1 17.32 0"
+            ></path></svg
+          >
+          <span class="text-sm text-gray-400 uppercase tracking-widest"
+            >Kỹ năng</span
+          >
+        </div>
+        <h2 class="text-4xl md:text-5xl font-bold text-white">
+          Kỹ năng chuyên môn
+        </h2>
+        <p class="text-gray-400 max-w-2xl">
+          Những công nghệ và công cụ tôi sử dụng để biến ý tưởng thiết kế
+          thành những trải nghiệm web đẹp và hiệu suất cao.
+        </p>
+      </div>
+
+      <div class="skills-scene-wrapper">
+        <div class="skills-scene">
+          {
+            skills.map((skill, i) => (
+              <div class="skill-card">
+                <div class="skill-card-inner">
+                  <div class="skill-card-front">
+                    <div class="skill-card-icon">
+                      {i === 0 && (
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="32"
+                          height="32"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="#9dc3f7"
+                          stroke-width="1.5"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        >
+                          <polyline points="16 18 22 12 16 6" />
+                          <polyline points="8 6 2 12 8 18" />
+                        </svg>
+                      )}
+                      {i === 1 && (
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="32"
+                          height="32"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="#9dc3f7"
+                          stroke-width="1.5"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        >
+                          <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z" />
+                        </svg>
+                      )}
+                      {i === 2 && (
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="32"
+                          height="32"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="#9dc3f7"
+                          stroke-width="1.5"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        >
+                          <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z" />
+                        </svg>
+                      )}
+                    </div>
+                    <p class="skill-card-title">{skill.label}</p>
+                    <p class="skill-card-hint">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="13"
+                        height="13"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      >
+                        <path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8" />
+                        <path d="M3 3v5h5" />
+                      </svg>
+                      Cuộn để xem chi tiết
+                    </p>
+                  </div>
+
+                  <div class="skill-card-back">
+                    <p class="skill-card-back-label">{skill.label}</p>
+                    <ul class="skill-card-list">
+                      {skill.items.map((item) => (
+                        <li>
+                          <span class="skill-dot" />
+                          {item}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            ))
+          }
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .skills-scene-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    min-height: 420px;
+    perspective: 1200px;
+    overflow: visible;
+  }
+
+  .skills-scene {
+    position: relative;
+    width: 260px;
+    height: 380px;
+    flex-shrink: 0;
+  }
+
+  .skill-card {
+    position: absolute;
+    inset: 0;
+    border-radius: 24px;
+  }
+
+  .skill-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+  }
+
+  .skill-card-front,
+  .skill-card-back {
+    position: absolute;
+    inset: 0;
+    border-radius: 24px;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+  }
+
+  .skill-card-front {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    padding: 32px;
+    background: hsla(0, 0%, 100%, 0.03);
+    box-shadow:
+      inset 0 0 0 1px hsla(0, 0%, 100%, 0.08),
+      inset 0 0 5vw hsla(0, 0%, 100%, 0.03);
+  }
+
+  .skill-card-icon {
+    width: 64px;
+    height: 64px;
+    border-radius: 16px;
+    background: rgba(255, 255, 255, 0.05);
+    box-shadow: inset 0 0 0 1px hsla(0, 0%, 100%, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .skill-card-title {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #fff;
+    text-align: center;
+    line-height: 1.4;
+    margin: 0;
+  }
+
+  .skill-card-hint {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.75rem;
+    color: rgba(157, 195, 247, 0.5);
+    margin: 0;
+  }
+
+  .skill-card-back {
+    transform: rotateY(180deg);
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding: 32px;
+    background: hsla(220, 30%, 7%, 0.98);
+    box-shadow: inset 0 0 0 1px hsla(0, 0%, 100%, 0.12);
+  }
+
+  .skill-card-back-label {
+    font-size: 0.7rem;
+    font-weight: 600;
+    color: #9dc3f7;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin: 0;
+  }
+
+  .skill-card-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .skill-card-list li {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 0.875rem;
+    color: rgba(255, 255, 255, 0.8);
+  }
+
+  .skill-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #9dc3f7;
+    flex-shrink: 0;
+  }
+</style>

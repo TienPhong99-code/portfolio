@@ -260,7 +260,7 @@ function initSplineModal() {
         onLeaveBack: () => modal.classList.remove("is-interactive"),
       },
     })
-    .fromTo(modal, pos().hidden, { ...pos().right, ease: "power2.out" });
+    .fromTo(modal, pos().hidden, { ...pos().right });
 
   // Timeline 2: RIGHT → LEFT, scrub theo toàn bộ horizontal scroll của Projects
   if (projectsWrapper) {
@@ -270,11 +270,11 @@ function initSplineModal() {
           trigger: projectsSection,
           start: "top top",
           end: () => "+=" + projectsWrapper.scrollWidth,
-          scrub: 1.5,
+          scrub: 1,
           invalidateOnRefresh: true,
         },
       })
-      .to(modal, { ...pos().left, ease: "power2.inOut" });
+      .to(modal, { ...pos().left });
   }
 
   // Timeline 3: LEFT → BOTTOM, scrub khi Tech section vào view
@@ -285,11 +285,82 @@ function initSplineModal() {
           trigger: techSection,
           start: "top 80%",
           end: "top 20%",
-          scrub: 1.5,
+          scrub: 1,
         },
       })
-      .to(modal, { ...pos().bottom, ease: "power2.inOut" });
+      .to(modal, { ...pos().bottom });
   }
+
+  // Timeline 4: modal chạy xuống bottom màn hình (hiển thị 1/2) khi gần tới section-connect
+  const connectSection = document.querySelector(".section-connect");
+  if (connectSection) {
+    gsap
+      .timeline({
+        scrollTrigger: {
+          trigger: connectSection,
+          start: "top bottom",
+          end: "top top",
+          scrub: 1,
+          invalidateOnRefresh: true,
+        },
+      })
+      .to(modal, { ...pos().bottom });
+  }
+}
+
+
+function initConnectScroll() {
+  const section = document.querySelector(".connect-section");
+  const colLeft = document.querySelector(".connect-col-left");
+  const colRight = document.querySelector(".connect-col-right");
+
+  if (!section || !colLeft || !colRight) return;
+
+  // Left column scrolls upward (negative translateY)
+  gsap.to(colLeft, {
+    y: "-25%",
+    ease: "none",
+    scrollTrigger: {
+      trigger: section,
+      start: "top bottom",
+      end: "bottom top",
+      scrub: 1.8,
+      invalidateOnRefresh: true,
+    },
+  });
+
+  // Right column scrolls downward (positive translateY) — opposite direction
+  gsap.to(colRight, {
+    y: "25%",
+    ease: "none",
+    scrollTrigger: {
+      trigger: section,
+      start: "top bottom",
+      end: "bottom top",
+      scrub: 1.8,
+      invalidateOnRefresh: true,
+    },
+  });
+}
+
+function initExperienceTimeline() {
+  const items = gsap.utils.toArray(".exp-item");
+  if (!items.length) return;
+
+  items.forEach((item, i) => {
+    gsap.to(item, {
+      opacity: 1,
+      y: 0,
+      duration: 0.7,
+      ease: "power2.out",
+      scrollTrigger: {
+        trigger: item,
+        start: "top 85%",
+        toggleActions: "play none none none",
+      },
+      delay: i * 0.1,
+    });
+  });
 }
 
 window.addEventListener("load", () => {
@@ -297,4 +368,6 @@ window.addEventListener("load", () => {
   initTechIconsMotion();
   initSkillsFlip();
   initSplineModal();
+  initConnectScroll();
+  initExperienceTimeline();
 });

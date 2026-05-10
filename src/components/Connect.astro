@@ -1,0 +1,159 @@
+---
+const leftImages = [
+  "https://www.dialedweb.com/_next/image?url=%2Fmockups%2Fheavemax.webp&w=2048&q=75&dpl=dpl_3ZCJnmMsVQZLn2HrYwxgFMJ8Lg6c",
+  "https://www.dialedweb.com/_next/image?url=%2Fmockups%2Fessentiamax.webp&w=2048&q=75&dpl=dpl_3ZCJnmMsVQZLn2HrYwxgFMJ8Lg6c",
+  "https://www.dialedweb.com/_next/image?url=%2Fmockups%2Fkinimaticmax.webp&w=2048&q=75&dpl=dpl_3ZCJnmMsVQZLn2HrYwxgFMJ8Lg6c",
+];
+
+const rightImages = [
+  "https://www.dialedweb.com/_next/image?url=%2Fmockups%2Fvitamax.webp&w=2048&q=75&dpl=dpl_3ZCJnmMsVQZLn2HrYwxgFMJ8Lg6c",
+  "https://www.dialedweb.com/_next/image?url=%2Fmockups%2Fheavemax.webp&w=2048&q=75&dpl=dpl_3ZCJnmMsVQZLn2HrYwxgFMJ8Lg6c",
+  "https://www.dialedweb.com/_next/image?url=%2Fmockups%2Fheavemax.webp&w=2048&q=75&dpl=dpl_3ZCJnmMsVQZLn2HrYwxgFMJ8Lg6c",
+];
+---
+
+<section class="section-connect py-20">
+  <div class="container">
+    <div
+      class="connect-section overflow-hidden relative rounded-[25px] bg-[hsla(0,0%,100%,0.025)] shadow-[inset_0_0_0_1px_hsla(0,0%,100%,0.075),inset_0_0_5vw_hsla(0,0%,100%,0.05)] px-[4vw]"
+      style="height: 65vh;"
+    >
+      <div class="flex items-stretch h-full w-full">
+        <div
+          class="connect-col-left flex-shrink-0 flex flex-col gap-3 will-change-transform"
+          style="width: 18vw; margin-top: -15vh; padding-bottom: 15vh;"
+        >
+          {
+            leftImages.map((src, i) => (
+              <div
+                class="group w-full flex-shrink-0 overflow-hidden rounded-[25px] bg-[hsla(0,0%,100%,0.025)] shadow-[inset_0_0_0_1px_hsla(0,0%,100%,0.075),inset_0_0_5vw_hsla(0,0%,100%,0.05)]"
+                style="height: 50vh;"
+              >
+                <img
+                  src={src}
+                  alt={`Project ${i + 1}`}
+                  class="w-full h-full object-cover"
+                />
+              </div>
+            ))
+          }
+        </div>
+
+        <!-- Center Content -->
+        <div
+          class="flex-1 flex flex-col items-center justify-center text-center px-10 gap-6 relative z-10"
+        >
+          <!-- Badge -->
+          <div
+            class="flex items-center gap-2 px-4 py-2 rounded-full border border-white/10 bg-white/5"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="text-gray-400"
+            >
+              <path
+                d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"
+              ></path>
+            </svg>
+            <span class="text-xs text-gray-400 uppercase tracking-widest">
+              Liên hệ
+            </span>
+          </div>
+          <div class="titlebox">
+            <div class="titlebox-gradient"></div>
+            <div class="subheadline text-white">
+              <div class="inline-block">Kết nối với tôi</div>
+            </div>
+          </div>
+          <div class="description grey">
+            <p>
+              Luôn sẵn sàng lắng nghe ý tưởng của bạn, hợp tác để xây dựng những
+              sản phẩm web đột phá, sáng tạo và đầy cảm xúc.
+            </p>
+          </div>
+
+          <!-- Email Form -->
+          <form
+            class="flex items-center w-full max-w-sm"
+            onsubmit="return false;"
+          >
+            <div class="flex-1 relative">
+              <input
+                type="email"
+                placeholder="Email của bạn"
+                class="w-full bg-white/10 border border-white/15 px-5 py-3 text-white placeholder-gray-500 outline-none text-sm transition-all duration-300 focus:border-white/30 focus:bg-white/15 focus:shadow-[0_0_0_1px_rgba(255,255,255,0.15)]"
+                style="border-radius: 999px 0 0 999px; padding-right: 0.5rem;"
+              />
+            </div>
+            <button
+              type="submit"
+              class="flex-shrink-0 cursor-pointer bg-white text-black font-semibold text-sm px-6 py-3 transition-all duration-300 hover:bg-gray-200 active:scale-95"
+              style="border-radius: 0 999px 999px 0;"
+            >
+              Subscribe
+            </button>
+          </form>
+
+          <!-- Social links -->
+          <div class="flex items-center gap-6 mt-2">
+            <a
+              href="#"
+              class="text-gray-500 hover:text-white transition-colors duration-200 text-xs uppercase tracking-widest"
+            >
+              GitHub
+            </a>
+            <span class="w-1 h-1 rounded-full bg-white/20"></span>
+            <a
+              href="#"
+              class="text-gray-500 hover:text-white transition-colors duration-200 text-xs uppercase tracking-widest"
+            >
+              LinkedIn
+            </a>
+            <span class="w-1 h-1 rounded-full bg-white/20"></span>
+            <a
+              href="#"
+              class="text-gray-500 hover:text-white transition-colors duration-200 text-xs uppercase tracking-widest"
+            >
+              Twitter
+            </a>
+          </div>
+        </div>
+
+        <!-- Right Column: width 17.5vw, margin-top -35vh, padding-bottom 35vh -->
+        <div
+          class="connect-col-right flex-shrink-0 flex flex-col gap-3 will-change-transform"
+          style="width: 18vw; margin-top: -15vh; padding-bottom: 15vh;"
+        >
+          {
+            rightImages.map((src, i) => (
+              <div
+                class="group w-full flex-shrink-0 overflow-hidden rounded-[25px] bg-[hsla(0,0%,100%,0.025)] shadow-[inset_0_0_0_1px_hsla(0,0%,100%,0.075),inset_0_0_5vw_hsla(0,0%,100%,0.05)]"
+                style="height: 50vh;"
+              >
+                <img
+                  src={src}
+                  alt={`Project ${i + 5}`}
+                  class="w-full h-full object-cover transition-transform duration-[600ms] ease-in-out"
+                />
+              </div>
+            ))
+          }
+        </div>
+      </div>
+
+      <div
+        class="pointer-events-none absolute inset-y-0 right-0 z-20"
+        style="width: 100%; height: 17.5vw; background: linear-gradient(180deg, #010101 0%, transparent 100%);"
+      >
+      </div>
+    </div>
+  </div>
+</section>
